@@ -63,8 +63,7 @@ Implement a `CreateFighterController` with POST method to process fighter regist
 - **CreateFighter Template:** 
   - Create a registration form that guides users to fix validation issues
   - Display validation error messages on the form
-  - Make it visually appealing using the existing `styles.css` and Bootstrap
-
+ 
 - **FighterController:**
   - Create a new `FighterController` that renders fighters in a table
   - Display all registered fighters similar to what we did with Players
