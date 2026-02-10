@@ -1,9 +1,14 @@
 package com.example.Thymeleaf.Demo.controllers;
 
 import com.example.Thymeleaf.Demo.Model.Contact;
+
+import jakarta.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
@@ -18,14 +23,17 @@ public class ContactController {
 
         return "contact";
     }
-
 @PostMapping("/contact")
-public String submitContact(Contact contact, Model model) {
-
-    model.addAttribute("submittedContact", contact);
-
-    return "contact-result";
+public String submit(
+    @Valid @ModelAttribute Contact contact,
+    BindingResult result
+) {
+    if (result.hasErrors()) {
+        return "contact";
+    }
+    return "result";
 }
+
 
 
 
